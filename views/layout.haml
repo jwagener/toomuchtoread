@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title Naive Adventure Invention Engine
+    %link{:rel => 'stylesheet', :href => "/assets/app.css"}
+    %script{:src => "/assets/app.js"}
+    %meta{:property => 'og:title',        :content => "A Sinatra App"}
+    %meta{:property => 'og:description',  :content => "A Sinatra App"}
+    %meta{:property => 'og:site_name',    :content => "Sinatra App"}
+    %meta{:property => 'og:url',          :content => "http://app.herokuapp.com"}
+    %meta{:property => 'og:type',         :content => "website"}
+    %meta{:property => 'og:image',        :content => "http://app.herokuapp.com/images/logo.png"}
+
+  %body
+    #content
+      = yield
