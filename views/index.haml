@@ -1,1 +1,13 @@
-%h1 Hello
+%header
+  %h1 Gutenberg's Almost Complete Readmill Library
+  %h2
+    Powered by
+    = succeed "." do
+      %a{:href => "http://gutenberg.org", :target => "_blank"} Project Gutenberg
+    Built by
+    = succeed "." do
+      %a{:href => "http://twitter.com/johanneswagener", :target => "_blank"} Johannes Wagener
+  %input.search{:placeholder => "Search for any book...", :type => "text", :value => @term}/
+%ul.books
+  - @books.each do |book|
+    = partial("book", locals: {book: book})

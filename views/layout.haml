@@ -1,16 +1,12 @@
 !!!
-%html
+%html{:lang => "en"}
   %head
-    %title Naive Adventure Invention Engine
-    %link{:rel => 'stylesheet', :href => "/assets/app.css"}
-    %script{:src => "/assets/app.js"}
-    %meta{:property => 'og:title',        :content => "A Sinatra App"}
-    %meta{:property => 'og:description',  :content => "A Sinatra App"}
-    %meta{:property => 'og:site_name',    :content => "Sinatra App"}
-    %meta{:property => 'og:url',          :content => "http://app.herokuapp.com"}
-    %meta{:property => 'og:type',         :content => "website"}
-    %meta{:property => 'og:image',        :content => "http://app.herokuapp.com/images/logo.png"}
-
+    %meta{:content => "text/html;charset=utf-8", "http-equiv" => "Content-Type"}
+      %title Gutenberg's Almost Complete Readmill Library
+      %link{:href => "/assets/app.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+      %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"}
+      %script{:src => "https://platform.readmill.com/send.js"}
+      %script{:src => "/assets/app.js"}
+      %script= "window.preloadedBooks = #{JSON.generate(@books)};"
   %body
-    #content
-      = yield
+    = yield

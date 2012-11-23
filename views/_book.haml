@@ -1,0 +1,20 @@
+
+- downloads = book[0]
+- id = (book[1] || "").to_i
+- title = book[2]
+- creator = book[3] || ""
+- color = "color#{(id % 5)}"
+- link = "http://www.gutenberg.org/ebooks/#{id}"
+- epub = "#{link}.epub"
+- cut = 50 - (rand() * 100)
+
+%li.book{class: color}
+  %h2.creator
+    %a{href: link, target: "_blank"}= creator
+  %h2.title
+    %a{href: link, target: "_blank"}= title
+
+  .buttons
+    .send-to-readmill{"data-download-url" => "http://www.gutenberg.org/ebooks/#{id}.epub", "data-buy-url" => "http://www.gutenberg.org/ebooks/#{id}", "data-display" => "small"}
+
+  .corner{style: "border-right: #{cut.abs}px solid #F2F1E6; top: #{cut < 0 ? "120px" : "0px"}"}

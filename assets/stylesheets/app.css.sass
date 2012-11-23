@@ -2,9 +2,147 @@
 
 @import "compass/css3"
 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  font-weight: inherit
+  font-style: inherit
+  font-size: 100%
+  font-family: inherit
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+caption, th, td
+  text-align: left
+  font-weight: normal
+
+form legend
+  display: none
+
+blockquote
+  &:before, &:after
+    content: ""
+
+q
+  &:before, &:after
+    content: ""
+
+blockquote, q
+  quotes: "" ""
+
+ol, ul
+  list-style: none
+
+hr
+  display: none
+  visibility: hidden
+
+\:focus
+  outline: 0
+
+*
+  box-sizing: border-box
+
+a
+  color: #333
+  text-decoration: none
+  &:visited, &:active
+    color: #333
+    text-decoration: none
+
 body
-  background-color: #f9a
-  color: black
-  width: 700px
-  margin: auto
-  text-align: center
+  background-color: #F2F1E6
+  font-family: "Georgia"
+  color: #333
+  font-size: 24px
+
+header
+  width: 100%
+  height: 120px
+  background-image: url(/assets/gutenberg.png)
+  background-repeat: no-repeat
+  background-size: 50px
+  background-position: 16px 10px
+  padding: 16px 16px 16px 80px
+  h2
+    font-size: 16px
+    font-style: italic
+
+.search
+  font-family: "Georgia"
+  color: #333
+  font-size: 20px
+  background-color: transparent
+  padding: 5px 5px 5px 0
+  margin-top: 10px
+  border: 0
+  -webkit-appearance: none
+  width: 99%
+  border-radius: 0
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4)
+
+input
+  &::-webkit-input-placeholder, &:-moz-placeholder
+    color: #444
+
+.book
+  width: 98%
+  height: 120px
+  background-color: red
+  padding: 16px
+  overflow: hidden
+  margin-bottom: 1px
+  position: relative
+  line-height: 30px
+
+.title
+  overflow: hidden
+  text-overflow: ellipsis
+  -o-text-overflow: ellipsis
+  white-space: nowrap
+  width: 70%
+
+.creator
+  overflow: hidden
+  text-overflow: ellipsis
+  -o-text-overflow: ellipsis
+  white-space: nowrap
+  width: 70%
+  a
+    color: #fbfeff
+    font-style: italic
+
+.buttons
+  position: absolute
+  right: 45px
+  top: 48px
+
+.corner
+  float: right
+  width: 0
+  height: 0
+  border-top: 120px solid transparent
+  border-bottom: 120px solid transparent
+  border-right: 40px solid #F2F1E6
+  position: absolute
+  right: 0px
+  top: 0px
+
+.color1
+  background-color: #ff884c
+
+.color2
+  background-color: #78ccbc
+
+.color3
+  background-color: #cbbb99
+
+.color4
+  background-color: #fb826f
+
+.color0
+  background-color: #c9a396
