@@ -16,12 +16,16 @@ configure do
 end
 
 get '/' do
-  @books = find_books("")
-  haml :index
+  @term = ""
+  doit()
 end
 
 get '/*' do |term|
   @term = term
+  doit()
+end
+
+def doit
   @offset = (params["offset"] || 0).to_i
   @books = find_books(@term)[@offset..@offset+9]
   if request.xhr?
@@ -33,8 +37,8 @@ end
 
 def find_books(term="")
   if term == ""
-    output = `cat ./sorted_index`
-    results = output.split("\n")[0..100]
+    output = IO.popen(["cat", "./sorted-index"], :external_encoding=>"UTF-8")
+    results = output.read.split("\n")[0..100]
   else
     output = IO.popen(["grep", "-i", term, "./sorted-index"], :external_encoding=>"UTF-8")
     results = output.read.split("\n")
