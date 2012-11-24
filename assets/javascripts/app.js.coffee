@@ -74,12 +74,16 @@ window.App =
   onChange: ->
     newTerm = App.getTerm()
     unless App.lastTerm is newTerm
-      window.history.replaceState({}, document.title, "/#{newTerm}")
+      url = "/#{encodeURIComponent(newTerm)}".replace(/%20/g, "-")
+      window.history.replaceState({}, document.title, url)
       App.lastTerm = newTerm
       App.clearBooks()
       App.cachedFindBooks newTerm, 0, (books) ->
-        if newTerm == App.getTerm()
-          App.addBooks books
+        if newTerm == App.getTerm() # check if search term is already outdated
+          if books.length == 0 && $("ul").is(":empty")
+            $("ul").html("Sorry, no books found...")
+          else
+            App.addBooks books
         else
           console.log("outdated, don't add")
 
@@ -104,6 +108,7 @@ $ ->
 
   App.isLoading = false
   $(window).scroll ->
+    console.log $(window).scrollTop(), $(document).height() - $(window).height() - 10
     if $(window).scrollTop() >= $(document).height() - $(window).height() - 10
       unless App.isLoading
         App.isLoading = true

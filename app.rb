@@ -26,6 +26,7 @@ get '/*' do |term|
 end
 
 def doit
+  @term.gsub!("-", " ")
   @offset = (params["offset"] || 0).to_i
   @books = find_books(@term)[@offset..@offset+9]
   if request.xhr?
