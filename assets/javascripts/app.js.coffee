@@ -44,8 +44,11 @@ window.App =
     link = "http://www.gutenberg.org/ebooks/#{id}#bibrec"
     epub = "http://www.gutenberg.org/ebooks/#{id}.epub"
     cut = 50 - (Math.random() * 100)
-    readmillHtml = "<div class=\"buttons\"><div class=\"send-to-readmill\" data-download-url=\"http://www.gutenberg.org/ebooks/" + id + ".epub\" data-buy-url=\"http://www.gutenberg.org/ebooks/\"" + id + " data-display=\"small\" ></div></div>"
-    #readmillHtml = ""
+
+    #epubUrl = "http://www.gutenberg.org/ebooks/" + id + ".epub"
+    epubUrl = "http://snowy.arsc.alaska.edu/gutenberg/cache/generated/#{id}/pg#{id}.epub"
+    readmillHtml = "<div class=\"buttons\"><div class=\"send-to-readmill\" data-download-url=\"#{epubUrl}\" data-buy-url=\"http://www.gutenberg.org/ebooks/\"" + id + " data-display=\"small\" ></div></div>"
+
     #var readmillHtml = '<div class="buttons"><iframe src="https://widgets.readmill.com/send?alt=a&amp;download_url=EPUB&amp;buy_url=LINK&amp;display=small&amp;origin_domain=http%3A%2F%2FORIGIN" style="top: 0px !important; left: 0px !important; width: 72px !important; height: 26px !important; margin: 0px !important; border: none !important; position: static !important; background-size: 100% !important; background-color: transparent !important; background-image: url(http://d3kdyw6hgzoh5r.cloudfront.net/assets/widgets/btn_str_small-05a10061a2250cba9d18f9e22ec5e87a.png) !important; background-position: 0px 0px !important; background-repeat: no-repeat no-repeat !important;" data-str-size="small" tabindex="0" scrolling="no" frameborder="0" class="send-to-readmill"></iframe></div>'
     #readmillHtml = readmillHtml.replace("LINK", encodeURIComponent(link));
     #readmillHtml = readmillHtml.replace("EPUB", encodeURIComponent(epub));
